@@ -97,6 +97,25 @@ body {
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="La Odisea">
+<script>
+(function () {
+  try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
+  var A = window.AudioContext || window.webkitAudioContext;
+  if (!A) return;
+  var todos = window.odiseaAudios = [];
+  function Ctx(o) { var c = o ? new A(o) : new A(); todos.push(c); return c; }
+  Ctx.prototype = A.prototype;
+  window.AudioContext = Ctx;
+  window.webkitAudioContext = Ctx;
+  function despertar() {
+    todos.forEach(function (c) { if (c.state !== 'running' && c.state !== 'closed') c.resume(); });
+  }
+  ['touchstart', 'touchend', 'pointerdown', 'mousedown', 'keydown'].forEach(function (ev) {
+    window.addEventListener(ev, despertar, true);
+  });
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) despertar(); });
+})();
+</script>
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -115,7 +134,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":10707448,"index.wasm":37700666},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":11498664,"index.wasm":37700666},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
