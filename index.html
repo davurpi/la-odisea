@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La Odisea</title>
-<meta name="description" content="La Odisea: el largo viaje de Ulises. Juego de aventuras en 3D con 6 capítulos.">
+<meta name="description" content="La Odisea: el largo viaje de Ulises. Juego de aventuras en 3D con 9 capítulos.">
 <link rel="icon" href="icono.png">
 <style>
   :root {
@@ -79,6 +79,8 @@
     border-radius: 12px;
     padding: 16px 18px;
   }
+  .caja.ancha { grid-column: 1 / -1; }
+  .caja span b.mini { font-size: inherit; color: var(--texto); }
   .caja:hover { border-color: var(--oro); background: #ffffff18; }
   .caja b { color: var(--oro); font-size: 20px; }
   .caja span { display: block; color: var(--suave); font-size: 14px; margin-top: 6px; line-height: 1.4; }
@@ -115,6 +117,13 @@
       <a class="caja" href="https://github.com/davurpi/la-odisea/releases/latest/download/LaOdisea.apk">
         <b>Descargar para Android</b>
         <span>Abre el archivo .apk en el móvil y permite instalar apps de «fuentes desconocidas».</span>
+      </a>
+      <a class="caja ancha" href="jugar/">
+        <b>Instalar en iPhone o iPad</b>
+        <span>1. Abre este enlace en <b class="mini">Safari</b> y pulsa «Jugar en el navegador».<br>
+        2. Toca el botón <b class="mini">Compartir</b> (el cuadrado con la flecha hacia arriba).<br>
+        3. Elige «Añadir a pantalla de inicio» y pulsa «Añadir».<br>
+        Aparecerá el icono de La Odisea en tu iPhone y se abrirá a pantalla completa, como una app.</span>
       </a>
     </div>
 
