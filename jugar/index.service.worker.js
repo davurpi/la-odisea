@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1790434236|22343867';
+const CACHE_VERSION = '1790437488|16196845';
 /** @type {string} */
 const CACHE_PREFIX = 'La Odisea-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
